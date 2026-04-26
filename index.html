@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExoWorld | Ville Just2Craft</title>
+    
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <style>
-        /* --- THÈME ET VARIABLES --- */
+        /* --- THEME JOYEUX ET STYLÉ --- */
         :root {
             --bg-dark: #0f172a;
             --bg-gradient: linear-gradient(135deg, #1e1b4b, #0f172a, #172554);
@@ -39,7 +41,6 @@
             flex-direction: column;
             min-height: 100vh;
             transition: background 0.4s; 
-            overflow-x: hidden;
         }
 
         /* --- VIDÉO DE FOND --- */
@@ -68,7 +69,9 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 2px 10px rgba(220, 38, 38, 0.5);
+            transition: opacity 0.5s ease;
         }
+
         .beta-badge {
             background: white;
             color: #dc2626;
@@ -91,81 +94,492 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            transition: opacity 0.5s ease;
         }
-        .light-mode header { background: rgba(255, 255, 255, 0.8); }
 
-        .logo-container { display: flex; align-items: center; gap: 15px; }
-        .site-logo { height: 45px; border-radius: 12px; box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); }
-        .site-title { font-size: 1.6em; font-weight: 900; background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; text-transform: uppercase; letter-spacing: 2px;}
+        .light-mode header { 
+            background: rgba(255, 255, 255, 0.8); 
+        }
 
-        nav { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; flex: 1; justify-content: center; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: bold; font-size: 0.8em; padding: 8px 10px; border-radius: 20px; transition: 0.3s; cursor: pointer; border: 1px solid transparent; }
-        nav a:hover, nav a.active { background: rgba(14, 165, 233, 0.2); border-color: var(--accent-blue); color: var(--accent-blue); transform: translateY(-2px); }
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
 
-        .btn-discord { background: #5865F2; color: white !important; border-radius: 20px; padding: 8px 15px; box-shadow: 0 4px 15px rgba(88,101,242,0.4); margin-left: 10px;}
+        .site-logo { 
+            height: 45px; 
+            border-radius: 12px; 
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); 
+        }
 
-        /* --- ACTIONS & DROPDOWNS --- */
-        .header-actions { display: flex; gap: 10px; align-items: center; position: relative; }
-        .icon-btn { background: var(--panel-glass); border: 1px solid var(--border-light); color: var(--text-main); width: 38px; height: 38px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: 0.3s; position: relative; font-size: 1.1em; }
-        .icon-btn:hover { border-color: var(--accent-blue); background: rgba(14, 165, 233, 0.2); }
-        
+        .site-title { 
+            font-size: 1.6em; 
+            font-weight: 900; 
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        nav { 
+            display: flex; 
+            gap: 8px; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            flex: 1; 
+            justify-content: center; 
+        }
+
+        nav a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.85em; 
+            padding: 8px 12px; 
+            border-radius: 20px; 
+            transition: 0.3s; 
+            cursor: pointer; 
+            border: 1px solid transparent; 
+        }
+
+        nav a:hover, nav a.active { 
+            background: rgba(14, 165, 233, 0.2); 
+            border-color: var(--accent-blue); 
+            color: var(--accent-blue); 
+            transform: translateY(-2px); 
+        }
+
+        .btn-discord { 
+            background: #5865F2; 
+            color: white !important; 
+            border-radius: 20px; 
+            padding: 8px 15px; 
+            box-shadow: 0 4px 15px rgba(88,101,242,0.4); 
+            margin-left: 10px;
+        }
+
+        /* --- DROPDOWNS --- */
+        .header-actions { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            position: relative; 
+        }
+
+        .icon-btn { 
+            background: var(--panel-glass); 
+            border: 1px solid var(--border-light); 
+            color: var(--text-main); 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            position: relative; 
+            font-size: 1.2em; 
+        }
+
+        .icon-btn:hover { 
+            border-color: var(--accent-blue); 
+            background: rgba(14, 165, 233, 0.2); 
+        }
+
+        .notif-badge { 
+            position: absolute; 
+            top: -2px; 
+            right: -2px; 
+            background: var(--accent-pink); 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            border: 2px solid var(--bg-dark); 
+            box-shadow: 0 0 5px var(--accent-pink); 
+        }
+
         .dropdown-menu { 
-            position: absolute; top: 55px; right: 0; 
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(15px); 
-            border: 1px solid var(--accent-blue); border-radius: 15px; 
-            width: 260px; padding: 15px; 
-            display: flex; flex-direction: column; gap: 10px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6); z-index: 1001; 
-            opacity: 0; visibility: hidden; transform: translateY(-10px);
-            transition: 0.3s;
+            position: absolute; 
+            top: 60px; 
+            right: 0; 
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid var(--accent-blue); 
+            border-radius: 15px; 
+            width: 280px; 
+            padding: 15px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+            z-index: 1001; 
+            opacity: 0; 
+            visibility: hidden;
+            transform: translateY(-20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: top right;
         }
-        .dropdown-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-title { font-weight: bold; color: var(--accent-blue); border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 5px; }
 
-        /* --- MAIN CONTENT --- */
-        main { flex: 1; padding: 30px 20px; max-width: 1100px; margin: 0 auto; width: 100%; box-sizing: border-box; }
-        .page-section { display: none; animation: fadeIn 0.4s ease; }
-        .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown-menu.active { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateY(0) scale(1); 
+        }
 
-        .card { background: var(--panel-glass); border: 1px solid var(--border-light); border-radius: 20px; padding: 25px; margin-bottom: 25px; backdrop-filter: blur(10px); transition: 0.3s; }
-        .card:hover { border-color: var(--accent-blue); transform: translateY(-3px); }
+        .dropdown-title { 
+            font-weight: bold; 
+            color: var(--accent-blue); 
+            border-bottom: 1px solid var(--border-light); 
+            padding-bottom: 8px; 
+            margin-bottom: 5px; 
+            font-size: 1.1em; 
+        }
 
-        /* --- SPECIFIC SECTIONS --- */
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(236,72,153,0.1)); border: 2px solid var(--accent-blue); }
-        .ip-box { background: rgba(0,0,0,0.4); border: 2px dashed var(--accent-pink); display: inline-flex; align-items: center; padding: 12px 25px; border-radius: 12px; margin-top: 15px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .ip-box:hover { background: var(--accent-pink); color: white; transform: scale(1.05); }
+        .notif-item { 
+            background: rgba(255,255,255,0.05); 
+            padding: 10px; 
+            border-radius: 8px; 
+            font-size: 0.85em; 
+            border-left: 3px solid var(--accent-pink); 
+        }
+        
+        .setting-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 15px; overflow: hidden; border: 1px solid var(--border-light); height: 200px; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        .switch { 
+            position: relative; 
+            display: inline-block; 
+            width: 40px; 
+            height: 20px; 
+        }
 
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 15px; }
-        .cal-day { background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; min-height: 70px; padding: 8px; font-size: 0.9em; }
-        .cal-today { border: 2px solid var(--accent-gold); background: rgba(245, 158, 11, 0.1); }
+        .switch input { 
+            opacity: 0; 
+            width: 0; 
+            height: 0; 
+        }
 
-        /* --- CINEMA MODE --- */
-        body.cinema-active header, body.cinema-active footer, body.cinema-active .beta-banner, body.cinema-active main { opacity: 0; pointer-events: none; }
-        #exit-cinema { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--bg-dark); border: 2px solid var(--accent-blue); padding: 10px 25px; border-radius: 30px; color: var(--accent-blue); cursor: pointer; z-index: 9999; display: none; font-weight: bold; }
-        body.cinema-active #exit-cinema { display: block; }
+        .slider { 
+            position: absolute; 
+            cursor: pointer; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background-color: #475569; 
+            transition: .4s; 
+            border-radius: 20px; 
+        }
+
+        .slider:before { 
+            position: absolute; 
+            content: ""; 
+            height: 14px; 
+            width: 14px; 
+            left: 3px; 
+            bottom: 3px; 
+            background-color: white; 
+            transition: .4s; 
+            border-radius: 50%; 
+        }
+
+        input:checked + .slider { 
+            background-color: var(--accent-blue); 
+        }
+
+        input:checked + .slider:before { 
+            transform: translateX(20px); 
+        }
+
+        input[type=range] { 
+            -webkit-appearance: none; 
+            width: 120px; 
+            background: transparent; 
+        }
+
+        input[type=range]::-webkit-slider-thumb { 
+            -webkit-appearance: none; 
+            height: 14px; 
+            width: 14px; 
+            border-radius: 50%; 
+            background: var(--accent-blue); 
+            cursor: pointer; 
+            margin-top: -5px; 
+            box-shadow: 0 0 5px rgba(14, 165, 233, 0.5); 
+        }
+
+        input[type=range]::-webkit-slider-runnable-track { 
+            width: 100%; 
+            height: 4px; 
+            cursor: pointer; 
+            background: var(--border-light); 
+            border-radius: 2px; 
+        }
+
+        .custom-file-upload { 
+            display: inline-block; 
+            padding: 8px 12px; 
+            cursor: pointer; 
+            background: rgba(255,255,255,0.05); 
+            border: 1px dashed var(--accent-blue); 
+            border-radius: 8px; 
+            font-size: 0.85em; 
+            color: var(--text-main); 
+            text-align: center; 
+            width: 100%; 
+            box-sizing: border-box; 
+            transition: 0.3s; 
+        }
+
+        .custom-file-upload:hover { 
+            background: rgba(14, 165, 233, 0.2); 
+        }
+
+        /* --- STYLES BUGS --- */
+        .bug-ticket { 
+            background: rgba(255,255,255,0.05); 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid var(--border-light); 
+            transition: 0.3s; 
+        }
+
+        .bug-status { 
+            display: inline-block; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.75em; 
+            font-weight: bold; 
+            margin-top: 10px; 
+            text-transform: uppercase; 
+        }
+
+        .status-unresolved { 
+            background: rgba(220, 38, 38, 0.15); 
+            color: #ef4444; 
+            border: 1px solid #ef4444; 
+        }
+
+        .status-resolved { 
+            background: rgba(16, 185, 129, 0.15); 
+            color: #10b981; 
+            border: 1px solid #10b981; 
+        }
+
+        /* --- MODE CINÉMA --- */
+        body.cinema-active header, 
+        body.cinema-active main, 
+        body.cinema-active footer, 
+        body.cinema-active .beta-banner { 
+            opacity: 0 !important; 
+            pointer-events: none !important; 
+        }
+
+        #exit-cinema-btn { 
+            position: fixed; 
+            bottom: 30px; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(50px); 
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(10px); 
+            color: var(--accent-blue); 
+            border: 2px solid var(--accent-blue); 
+            padding: 12px 30px; 
+            border-radius: 30px; 
+            font-size: 1.1em; 
+            font-weight: bold; 
+            cursor: pointer; 
+            z-index: 9999; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: 0.4s; 
+        }
+
+        body.cinema-active #exit-cinema-btn { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(0); 
+        }
+
+        /* --- MAIN --- */
+        main { 
+            flex: 1; 
+            padding: 40px 20px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            width: 100%; 
+            box-sizing: border-box; 
+            transition: 0.5s; 
+        }
+
+        .page-section { 
+            display: none; 
+            animation: popIn 0.5s forwards; 
+            opacity: 0; 
+            transform: scale(0.95); 
+        }
+
+        .page-section.active { 
+            display: block; 
+        }
+
+        @keyframes popIn { 
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            } 
+        }
+
+        .card { 
+            background: var(--panel-glass); 
+            border: 1px solid var(--border-light); 
+            border-radius: 20px; 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            backdrop-filter: blur(10px); 
+            transition: 0.3s; 
+        }
+
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent-pink); 
+        }
+
+        /* --- ACCUEIL --- */
+        .hero { 
+            text-align: center; 
+            background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(236,72,153,0.2)); 
+            border: 2px solid var(--accent-blue); 
+        }
+
+        .ip-box { 
+            background: rgba(0,0,0,0.5); 
+            border: 2px dashed var(--accent-pink); 
+            display: inline-flex; 
+            align-items: center; 
+            padding: 15px 30px; 
+            border-radius: 15px; 
+            margin-top: 20px; 
+            cursor: pointer; 
+            font-size: 1.3em; 
+            font-weight: bold; 
+            color: white; 
+        }
+
+        /* --- GALERIE --- */
+        .gallery-feed { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .gallery-post { 
+            background: rgba(0,0,0,0.3); 
+            border-radius: 15px; 
+            border: 1px solid var(--border-light); 
+            overflow: hidden; 
+            transition: 0.3s; 
+            cursor: pointer; 
+        }
+
+        .gallery-img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            display: block; 
+            transition: 0.4s; 
+        }
+
+        .gallery-post:hover .gallery-img { 
+            transform: scale(1.05); 
+        }
+
+        /* --- CALENDRIER --- */
+        .calendar-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            background: rgba(0,0,0,0.3); 
+            padding: 15px; 
+            border-radius: 15px; 
+        }
+
+        .cal-nav-btn { 
+            background: transparent; 
+            border: none; 
+            color: var(--accent-pink); 
+            font-size: 1.5em; 
+            cursor: pointer; 
+        }
+
+        .cal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 10px; 
+        }
+
+        .cal-case { 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid var(--border-light); 
+            border-radius: 10px; 
+            min-height: 80px; 
+            padding: 10px; 
+            cursor: pointer; 
+            transition: 0.2s; 
+        }
+
+        .today { 
+            border: 2px solid var(--accent-gold); 
+            background: rgba(245, 158, 11, 0.1); 
+        }
 
         /* --- FOOTER --- */
-        footer { background: rgba(15, 23, 42, 0.9); padding: 40px 20px; border-top: 2px solid var(--accent-gold); margin-top: auto; }
-        .footer-content { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .footer-col h3 { color: var(--accent-gold); font-size: 1.1em; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li { margin-bottom: 8px; font-size: 0.9em; cursor: pointer; transition: 0.2s; }
-        .footer-col ul li:hover { color: var(--accent-blue); padding-left: 5px; }
+        .main-footer { 
+            background: rgba(10, 10, 15, 0.95); 
+            padding: 60px 40px 20px 40px; 
+            border-top: 2px solid var(--accent-gold); 
+            margin-top: auto; 
+            color: var(--text-dim); 
+        }
+
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 40px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .footer-col a { 
+            color: var(--text-dim); 
+            text-decoration: none; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            font-size: 0.9em; 
+        }
+
+        .footer-col a:hover { 
+            color: var(--accent-blue); 
+            transform: translateX(5px); 
+        }
     </style>
 </head>
 <body>
 
-    <video id="bg-video" autoplay loop playsinline muted></video>
+    <video id="bg-video" autoplay loop playsinline></video>
 
     <div class="beta-banner">
         <span class="beta-badge">BÉTA</span> 
-        <span>Séquence de lancement activée. Bienvenue sur le site officiel !</span>
+        <span>Séquence de lancement activée. Site officiellement ouvert !</span>
     </div>
 
     <header>
@@ -186,20 +600,41 @@
             <a href="https://discord.gg/x6P8nVAZbH" target="_blank" class="btn-discord">Discord</a>
         </nav>
         <div class="header-actions">
-            <div class="icon-btn" onclick="toggleCinema()" title="Mode Cinéma">🎬</div>
+            <div class="icon-btn" onclick="toggleCinemaMode()" title="Mode Cinéma">🎬</div>
+            <div class="icon-btn" onclick="toggleMenu('menu-notifs')">🔔<div class="notif-badge"></div></div>
             <div class="icon-btn" onclick="toggleMenu('menu-params')">⚙️</div>
+            
+            <div id="menu-notifs" class="dropdown-menu">
+                <div class="dropdown-title">Notifications</div>
+                <div class="notif-item" style="border-left-color: var(--accent-blue);">🎉 Bienvenue sur le site final !</div>
+            </div>
             
             <div id="menu-params" class="dropdown-menu">
                 <div class="dropdown-title">Paramètres</div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div class="setting-row">
                     <span>Mode Sombre</span>
-                    <input type="checkbox" id="dark-toggle" checked onchange="toggleTheme()">
+                    <label class="switch">
+                        <input type="checkbox" id="toggleThemeBtn" checked onchange="toggleDarkMode(this)">
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <hr style="border:0; border-top:1px solid var(--border-light); margin:10px 0;">
-                <label style="font-size:0.8em; cursor:pointer; color:var(--accent-blue);">
-                    📂 Changer le fond <input type="file" id="bg-input" hidden accept="image/*,video/*">
-                </label>
-                <button onclick="resetBg()" style="background:none; border:none; color:var(--accent-pink); font-size:0.8em; cursor:pointer; text-align:left; padding:0; margin-top:5px;">Réinitialiser</button>
+                <div class="setting-row" id="row-video-sound" style="display: none; margin-top: 10px;">
+                    <span>Son Vidéo</span>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleSoundBtn" onchange="toggleVideoSound(this)">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-row" id="row-video-volume" style="display: none; margin-top: 10px;">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" oninput="changeVideoVolume(this)">
+                </div>
+                <div style="margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px;">
+                    <label class="custom-file-upload">
+                        <input type="file" id="bg-upload" accept="image/*, video/*" style="display:none;">
+                        📂 Changer le fond
+                    </label>
+                    <button onclick="resetBg()" style="background:none; border:none; color:var(--accent-pink); font-size:0.8em; cursor:pointer; width:100%; margin-top:10px;">Réinitialiser</button>
+                </div>
             </div>
         </div>
     </header>
@@ -207,83 +642,33 @@
     <main>
         <section id="accueil" class="page-section active">
             <div class="card hero">
-                <h1>✨ Bienvenue sur ExoWorld ✨</h1>
-                <p>Découvrez la ville la plus ambitieuse et joyeuse du serveur Just2Craft.</p>
-                <div class="ip-box" onclick="copyIp()">🎮 IP : just2craft.fr</div>
-            </div>
-            <div class="card">
-                <h2>Projets en cours</h2>
-                <p>Nous travaillons actuellement sur l'extension du quartier résidentiel et l'ouverture de la nouvelle mairie.</p>
+                <h1>✨ Bienvenue ✨</h1>
+                <p>La ville la plus ambitieuse de Just2Craft.</p>
+                <div class="ip-box" onclick="navigator.clipboard.writeText('just2craft.fr'); alert('IP Copiée !')">🎮 just2craft.fr</div>
             </div>
         </section>
 
         <section id="annonces" class="page-section">
-            <h1 class="page-title">📢 Annonces de la ville</h1>
-            <div id="annonces-list">
-                <div class="card" style="border-left: 5px solid var(--accent-gold);">
-                    <h2 style="color:var(--accent-gold);">👑 RyzeTx Administrateur !</h2>
-                    <p>Félicitations à RyzeTx pour son passage au grade d'administrateur de la ville !</p>
-                    <small>Publié le 26/04/2026</small>
-                </div>
-            </div>
-        </section>
-
-        <section id="histoire" class="page-section">
-            <h1 class="page-title">📖 Notre Histoire</h1>
-            <div class="card">
-                <p>Fondée par Dorlane, ExoWorld est née d'une volonté de créer un espace de partage et de construction unique sur Just2Craft...</p>
-            </div>
-        </section>
-
-        <section id="recrutement" class="page-section">
-            <h1 class="page-title">🚀 Recrutement</h1>
-            <div class="card" style="text-align:center;">
-                <h2>Rejoignez l'aventure !</h2>
-                <p>Nous recherchons des buildeurs talentueux et des décorateurs motivés.</p>
-                <a href="https://discord.gg/x6P8nVAZbH" target="_blank" style="color:var(--accent-blue); text-decoration:none; font-weight:bold;">Postuler sur Discord →</a>
-            </div>
-        </section>
-
-        <section id="calendrier" class="page-section">
-            <h1 class="page-title">📅 Événements à venir</h1>
-            <div class="card">
-                <div id="cal-container">
-                    <h2 id="cal-month">Avril 2026</h2>
-                    <div id="cal-grid" class="calendar-grid"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="galerie" class="page-section">
-            <h1 class="page-title">📸 Galerie Photos</h1>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="galerie/photo1.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=ExoWorld+1'"></div>
-                <div class="gallery-item"><img src="galerie/photo2.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=ExoWorld+2'"></div>
-                <div class="gallery-item"><img src="galerie/photo3.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=ExoWorld+3'"></div>
-            </div>
-        </section>
-
-        <section id="carte" class="page-section">
-            <h1 class="page-title">🗺️ Carte de la Ville</h1>
-            <div class="card" style="padding:0; overflow:hidden;">
-                <iframe src="https://survival.just2craft.fr/?worldname=world&mapname=surface&zoom=5&x=-14390&y=64&z=-19286" width="100%" height="600px" style="border:none;"></iframe>
+            <h1 class="page-title">📢 Annonces</h1>
+            <div class="card" style="border-left: 5px solid var(--accent-gold);">
+                <h2 style="color:var(--accent-gold);">👑 RyzeTx Administrateur !</h2>
+                <p>GG à RyzeTx pour son nouveau grade ! Promotion amplement méritée.</p>
             </div>
         </section>
 
         <section id="mises-a-jour" class="page-section">
-            <h1 class="page-title">🔄 Journal des Mises à jour</h1>
+            <h1 class="page-title">🔄 Mises à jour</h1>
             <div class="card" style="border-left: 5px solid var(--accent-blue);">
-                <h2 style="color: var(--accent-blue);">Version 10.31 (Actuelle)</h2>
+                <h2 style="color: var(--accent-blue);">Version 10.32 (Actuelle)</h2>
                 <ul>
-                    <li><strong>Déploiement Continu :</strong> Passage à une structure GitHub synchronisée avec Netlify.</li>
-                    <li><strong>Panel Admin :</strong> Activation de Netlify Identity et Git Gateway pour la gestion des annonces.</li>
-                    <li><strong>Infrastructure :</strong> Automatisation complète des mises à jour via GitHub.</li>
+                    <li><strong>Code source :</strong> Restauration du format étendu (unminified) pour faciliter la lecture et la modification manuelle.</li>
+                    <li><strong>Panel Admin :</strong> Maintien des scripts Netlify Identity pour la connexion sécurisée.</li>
                 </ul>
             </div>
             <div class="card">
-                <h2 style="color: var(--text-dim);">Version 10.30</h2>
+                <h2 style="color: var(--text-dim);">Version 10.31</h2>
                 <ul style="color: var(--text-dim);">
-                    <li>Préparation de la structure Decap CMS et création du dossier Admin.</li>
+                    <li>Mise en place du déploiement continu avec GitHub et intégration Decap CMS.</li>
                 </ul>
             </div>
         </section>
@@ -291,121 +676,233 @@
         <section id="bugs" class="page-section">
             <h1 class="page-title">🔧 Suivi des Bugs</h1>
             <div class="card">
-                <ul>
-                    <li style="margin-bottom:15px;">
-                        <strong>Mode Sombre :</strong> Quelques instabilités sur les navigateurs mobiles. <br>
-                        <span style="color:var(--accent-pink); font-size:0.8em; font-weight:bold;">[NON RÉSOLU]</span>
-                    </li>
-                </ul>
+                <li class="bug-ticket">
+                    <strong>Mode Sombre</strong><br>
+                    <span>Instabilités visuelles possibles.</span>
+                    <div class="bug-status status-unresolved">❌ Non résolu</div>
+                </li>
+            </div>
+        </section>
+
+        <section id="galerie" class="page-section">
+            <h1 class="page-title">📸 Galerie</h1>
+            <div class="gallery-feed">
+                <div class="gallery-post"><img src="galerie/photo1.jpg" class="gallery-img" onerror="this.style.display='none'"></div>
+                <div class="gallery-post"><img src="galerie/photo2.jpg" class="gallery-img" onerror="this.style.display='none'"></div>
+                <div class="gallery-post"><img src="galerie/photo3.jpg" class="gallery-img" onerror="this.style.display='none'"></div>
+            </div>
+        </section>
+
+        <section id="calendrier" class="page-section">
+            <h1 class="page-title">📅 Calendrier</h1>
+            <div class="card">
+                <div class="calendar-header">
+                    <button class="cal-nav-btn" onclick="changeMonth(-1)">◀</button>
+                    <h2 id="cal-title">Avril 2026</h2>
+                    <button class="cal-nav-btn" onclick="changeMonth(1)">▶</button>
+                </div>
+                <div id="cal-days" class="cal-grid"></div>
+            </div>
+        </section>
+
+        <section id="histoire" class="page-section">
+            <h1 class="page-title">📖 Histoire</h1>
+            <div class="card">
+                <p>Fondé par Dorlane.</p>
+            </div>
+        </section>
+
+        <section id="recrutement" class="page-section">
+            <h1 class="page-title">🚀 Recrutement</h1>
+            <div class="card" style="text-align:center">
+                <h2>On cherche des talents !</h2>
+                <p>Buildeurs et Décorateurs.</p>
+            </div>
+        </section>
+
+        <section id="carte" class="page-section">
+            <h1 class="page-title">🗺️ Carte</h1>
+            <div class="card">
+                <iframe src="https://survival.just2craft.fr/?worldname=world&mapname=surface&zoom=5&x=-14390&y=64&z=-19286" width="100%" height="500px" style="border:none; border-radius:15px;"></iframe>
+            </div>
+        </section>
+
+        <section id="cgu" class="page-section">
+            <h1 class="page-title">📜 CGU</h1>
+            <div class="card">
+                <p>Règles de vie à ExoWorld.</p>
+            </div>
+        </section>
+
+        <section id="confidentialite" class="page-section">
+            <h1 class="page-title">🔒 Privacy</h1>
+            <div class="card">
+                <p>Pas de collecte de données.</p>
             </div>
         </section>
     </main>
 
-    <button id="exit-cinema" onclick="toggleCinema()">❌ Quitter le mode cinéma</button>
+    <button id="exit-cinema-btn" onclick="disableCinemaMode()">❌ Quitter le mode cinéma</button>
 
-    <footer>
-        <div class="footer-content">
+    <footer class="main-footer">
+        <div class="footer-grid">
             <div class="footer-col">
                 <h3>EXOWORLD</h3>
-                <p>Une ville communautaire sur Just2Craft Survival.</p>
+                <p>La ville la plus joyeuse.</p>
             </div>
             <div class="footer-col">
-                <h3>Navigation</h3>
+                <h3>Liens</h3>
                 <ul>
-                    <li onclick="showPage('accueil')">Accueil</li>
-                    <li onclick="showPage('mises-a-jour')">Journal de bord</li>
-                    <li onclick="showPage('recrutement')">Rejoindre l'équipe</li>
+                    <li><a onclick="showPage('accueil')">Accueil</a></li>
+                    <li><a onclick="showPage('mises-a-jour')">Mises à jour</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Légal</h3>
                 <ul>
-                    <li>CGU</li>
-                    <li>Confidentialité</li>
+                    <li><a onclick="showPage('cgu')">CGU</a></li>
+                    <li><a onclick="showPage('confidentialite')">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Communauté</h3>
+                <ul>
+                    <li><a href="https://discord.gg/x6P8nVAZbH" target="_blank">Discord</a></li>
                 </ul>
             </div>
         </div>
     </footer>
 
     <script>
-        // NAVIGATION
-        function showPage(pageId) {
+        function showPage(p) {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            if(document.getElementById('nav-'+pageId)) document.getElementById('nav-'+pageId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            document.getElementById(p).classList.add('active');
+            if(document.getElementById('nav-'+p)) {
+                document.getElementById('nav-'+p).classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // MENUS & THEME
-        function toggleMenu(id) {
-            const menu = document.getElementById(id);
-            const isActive = menu.classList.contains('active');
-            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
-            if(!isActive) menu.classList.add('active');
+        function toggleMenu(m) {
+            const el = document.getElementById(m);
+            const active = el.classList.contains('active');
+            document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('active'));
+            if(!active) {
+                el.classList.add('active');
+            }
         }
 
-        function toggleTheme() {
-            document.body.classList.toggle('light-mode');
-            const isDark = !document.body.classList.contains('light-mode');
-            localStorage.setItem('exo_theme', isDark ? 'dark' : 'light');
+        function toggleCinemaMode() { 
+            document.body.classList.add('cinema-active'); 
+            document.getElementById('menu-params').classList.remove('active'); 
         }
 
-        function toggleCinema() {
-            document.body.classList.toggle('cinema-active');
-            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
+        function disableCinemaMode() { 
+            document.body.classList.remove('cinema-active'); 
         }
 
-        // FOND PERSONNALISÉ
-        document.getElementById('bg-input').addEventListener('change', function(e) {
+        function toggleDarkMode(cb) { 
+            document.body.classList.toggle('light-mode', !cb.checked); 
+            localStorage.setItem('exo_theme', cb.checked ? 'dark' : 'light'); 
+        }
+
+        function toggleVideoSound(cb) { 
+            document.getElementById('bg-video').muted = !cb.checked; 
+        }
+
+        function changeVideoVolume(slider) { 
+            const v = document.getElementById('bg-video'); 
+            v.volume = slider.value; 
+            v.muted = (slider.value == 0); 
+            document.getElementById('toggleSoundBtn').checked = (slider.value > 0); 
+        }
+        
+        document.getElementById('bg-upload').addEventListener('change', function(e) {
             const file = e.target.files[0];
-            const video = document.getElementById('bg-video');
-            if(file) {
-                const url = URL.createObjectURL(file);
-                if(file.type.startsWith('video/')) {
-                    video.src = url;
-                    video.style.display = 'block';
+            const videoEl = document.getElementById('bg-video');
+            if (file) {
+                if (file.type.startsWith('video/')) {
                     document.body.style.backgroundImage = 'none';
+                    videoEl.src = URL.createObjectURL(file);
+                    videoEl.style.display = 'block';
+                    document.getElementById('row-video-sound').style.display = 'flex';
+                    document.getElementById('row-video-volume').style.display = 'flex';
                 } else {
-                    video.style.display = 'none';
-                    document.body.style.backgroundImage = `url(${url})`;
-                    document.body.style.backgroundSize = 'cover';
+                    videoEl.style.display = 'none';
+                    const reader = new FileReader();
+                    reader.onload = e => { 
+                        document.body.style.backgroundImage = `url(${e.target.result})`; 
+                        document.body.style.backgroundSize = 'cover';
+                        localStorage.setItem('exo_customBg', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
                 }
             }
         });
 
         function resetBg() {
-            const video = document.getElementById('bg-video');
-            video.src = "";
-            video.style.display = 'none';
             document.body.style.backgroundImage = '';
+            localStorage.removeItem('exo_customBg');
+            const v = document.getElementById('bg-video'); 
+            v.style.display = 'none'; 
+            v.src = '';
+            document.getElementById('row-video-sound').style.display = 'none';
+            document.getElementById('row-video-volume').style.display = 'none';
         }
 
-        function copyIp() {
-            navigator.clipboard.writeText('just2craft.fr');
-            alert('IP copiée ! Prêt à rejoindre ExoWorld ?');
-        }
+        const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+        let currentMonth = 3, currentYear = 2026;
 
-        // CALENDRIER
-        function initCalendar() {
-            const grid = document.getElementById('cal-grid');
+        function renderCalendar() {
+            const grid = document.getElementById("cal-days");
             grid.innerHTML = "";
-            const days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-            days.forEach(d => grid.innerHTML += `<div style="text-align:center; font-weight:bold; color:var(--accent-pink); font-size:0.8em;">${d}</div>`);
-            for(let i=1; i<=30; i++) {
-                grid.innerHTML += `<div class="cal-day ${i===26?'cal-today':''}"><strong>${i}</strong></div>`;
+            const jours = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+            
+            jours.forEach(d => {
+                grid.innerHTML += `<div style="text-align:center; font-weight:bold; color:var(--accent-pink);">${d}</div>`;
+            });
+            
+            let firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            firstDay = firstDay === 0 ? 6 : firstDay - 1;
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            for(let i = 0; i < firstDay; i++) {
+                grid.innerHTML += `<div></div>`;
+            }
+            
+            for(let i = 1; i <= daysInMonth; i++) {
+                grid.innerHTML += `<div class="cal-case ${i===26?'today':''}"><strong>${i}</strong></div>`;
             }
         }
 
-        // INITIALISATION
-        window.onload = function() {
-            initCalendar();
-            const savedTheme = localStorage.getItem('exo_theme');
-            if(savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-                document.getElementById('dark-toggle').checked = false;
-            }
+        function changeMonth(d) { 
+            currentMonth += d; 
+            if(currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            } 
+            if(currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } 
+            document.getElementById('cal-title').innerText = monthNames[currentMonth] + " " + currentYear; 
+            renderCalendar(); 
         }
+
+        window.onload = function() {
+            renderCalendar();
+            const savedTheme = localStorage.getItem('exo_theme');
+            if (savedTheme === 'light') { 
+                document.body.classList.add('light-mode'); 
+                document.getElementById('toggleThemeBtn').checked = false; 
+            }
+            const savedBg = localStorage.getItem('exo_customBg');
+            if (savedBg) { 
+                document.body.style.backgroundImage = `url(${savedBg})`; 
+                document.body.style.backgroundSize = 'cover'; 
+            }
+        };
     </script>
 
     <script>
