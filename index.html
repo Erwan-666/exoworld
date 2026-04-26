@@ -8,7 +8,9 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     
     <style>
-        /* --- THEME JOYEUX ET STYLÉ --- */
+        /* ==========================================================================
+           VARIABLES DE COULEURS ET DE THÈME
+           ========================================================================== */
         :root {
             --bg-dark: #0f172a;
             --bg-gradient: linear-gradient(135deg, #1e1b4b, #0f172a, #172554);
@@ -31,6 +33,9 @@
             --border-light: rgba(0, 0, 0, 0.1);
         }
 
+        /* ==========================================================================
+           STYLES GÉNÉRAUX
+           ========================================================================== */
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,7 +65,7 @@
             background: rgba(220, 38, 38, 0.95);
             color: white;
             text-align: center;
-            padding: 8px 15px;
+            padding: 10px 15px;
             font-size: 0.85em;
             position: relative;
             z-index: 1002;
@@ -81,12 +86,14 @@
             letter-spacing: 1px;
         }
 
-        /* --- HEADER --- */
+        /* ==========================================================================
+           HEADER ET NAVIGATION
+           ========================================================================== */
         header {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(15px);
             border-bottom: 2px solid var(--accent-blue);
-            padding: 10px 25px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -114,7 +121,7 @@
         }
 
         .site-title { 
-            font-size: 1.6em; 
+            font-size: 1.8em; 
             font-weight: 900; 
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink)); 
             -webkit-background-clip: text; 
@@ -126,7 +133,7 @@
 
         nav { 
             display: flex; 
-            gap: 8px; 
+            gap: 10px; 
             align-items: center; 
             flex-wrap: wrap; 
             flex: 1; 
@@ -137,8 +144,8 @@
             color: var(--text-main); 
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 0.85em; 
-            padding: 8px 12px; 
+            font-size: 0.9em; 
+            padding: 10px 15px; 
             border-radius: 20px; 
             transition: 0.3s; 
             cursor: pointer; 
@@ -156,12 +163,14 @@
             background: #5865F2; 
             color: white !important; 
             border-radius: 20px; 
-            padding: 8px 15px; 
+            padding: 10px 20px; 
             box-shadow: 0 4px 15px rgba(88,101,242,0.4); 
             margin-left: 10px;
         }
 
-        /* --- DROPDOWNS --- */
+        /* ==========================================================================
+           DROPDOWNS ET ACTIONS
+           ========================================================================== */
         .header-actions { 
             display: flex; 
             gap: 15px; 
@@ -173,8 +182,8 @@
             background: var(--panel-glass); 
             border: 1px solid var(--border-light); 
             color: var(--text-main); 
-            width: 40px; 
-            height: 40px; 
+            width: 45px; 
+            height: 45px; 
             border-radius: 50%; 
             display: flex; 
             justify-content: center; 
@@ -182,7 +191,7 @@
             cursor: pointer; 
             transition: 0.3s; 
             position: relative; 
-            font-size: 1.2em; 
+            font-size: 1.3em; 
         }
 
         .icon-btn:hover { 
@@ -195,8 +204,8 @@
             top: -2px; 
             right: -2px; 
             background: var(--accent-pink); 
-            width: 12px; 
-            height: 12px; 
+            width: 14px; 
+            height: 14px; 
             border-radius: 50%; 
             border: 2px solid var(--bg-dark); 
             box-shadow: 0 0 5px var(--accent-pink); 
@@ -204,17 +213,17 @@
 
         .dropdown-menu { 
             position: absolute; 
-            top: 60px; 
+            top: 65px; 
             right: 0; 
             background: rgba(15, 23, 42, 0.95); 
             backdrop-filter: blur(15px); 
             border: 1px solid var(--accent-blue); 
             border-radius: 15px; 
             width: 280px; 
-            padding: 15px; 
+            padding: 20px; 
             display: flex; 
             flex-direction: column; 
-            gap: 10px; 
+            gap: 15px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
             z-index: 1001; 
             opacity: 0; 
@@ -236,15 +245,15 @@
             border-bottom: 1px solid var(--border-light); 
             padding-bottom: 8px; 
             margin-bottom: 5px; 
-            font-size: 1.1em; 
+            font-size: 1.2em; 
         }
 
         .notif-item { 
             background: rgba(255,255,255,0.05); 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 8px; 
-            font-size: 0.85em; 
-            border-left: 3px solid var(--accent-pink); 
+            font-size: 0.9em; 
+            border-left: 4px solid var(--accent-pink); 
         }
         
         .setting-row { 
@@ -256,8 +265,8 @@
         .switch { 
             position: relative; 
             display: inline-block; 
-            width: 40px; 
-            height: 20px; 
+            width: 44px; 
+            height: 24px; 
         }
 
         .switch input { 
@@ -275,16 +284,16 @@
             bottom: 0; 
             background-color: #475569; 
             transition: .4s; 
-            border-radius: 20px; 
+            border-radius: 24px; 
         }
 
         .slider:before { 
             position: absolute; 
             content: ""; 
-            height: 14px; 
-            width: 14px; 
-            left: 3px; 
-            bottom: 3px; 
+            height: 16px; 
+            width: 16px; 
+            left: 4px; 
+            bottom: 4px; 
             background-color: white; 
             transition: .4s; 
             border-radius: 50%; 
@@ -298,121 +307,12 @@
             transform: translateX(20px); 
         }
 
-        input[type=range] { 
-            -webkit-appearance: none; 
-            width: 120px; 
-            background: transparent; 
-        }
-
-        input[type=range]::-webkit-slider-thumb { 
-            -webkit-appearance: none; 
-            height: 14px; 
-            width: 14px; 
-            border-radius: 50%; 
-            background: var(--accent-blue); 
-            cursor: pointer; 
-            margin-top: -5px; 
-            box-shadow: 0 0 5px rgba(14, 165, 233, 0.5); 
-        }
-
-        input[type=range]::-webkit-slider-runnable-track { 
-            width: 100%; 
-            height: 4px; 
-            cursor: pointer; 
-            background: var(--border-light); 
-            border-radius: 2px; 
-        }
-
-        .custom-file-upload { 
-            display: inline-block; 
-            padding: 8px 12px; 
-            cursor: pointer; 
-            background: rgba(255,255,255,0.05); 
-            border: 1px dashed var(--accent-blue); 
-            border-radius: 8px; 
-            font-size: 0.85em; 
-            color: var(--text-main); 
-            text-align: center; 
-            width: 100%; 
-            box-sizing: border-box; 
-            transition: 0.3s; 
-        }
-
-        .custom-file-upload:hover { 
-            background: rgba(14, 165, 233, 0.2); 
-        }
-
-        /* --- STYLES BUGS --- */
-        .bug-ticket { 
-            background: rgba(255,255,255,0.05); 
-            padding: 15px; 
-            border-radius: 10px; 
-            margin-bottom: 15px; 
-            border: 1px solid var(--border-light); 
-            transition: 0.3s; 
-        }
-
-        .bug-status { 
-            display: inline-block; 
-            padding: 4px 10px; 
-            border-radius: 6px; 
-            font-size: 0.75em; 
-            font-weight: bold; 
-            margin-top: 10px; 
-            text-transform: uppercase; 
-        }
-
-        .status-unresolved { 
-            background: rgba(220, 38, 38, 0.15); 
-            color: #ef4444; 
-            border: 1px solid #ef4444; 
-        }
-
-        .status-resolved { 
-            background: rgba(16, 185, 129, 0.15); 
-            color: #10b981; 
-            border: 1px solid #10b981; 
-        }
-
-        /* --- MODE CINÉMA --- */
-        body.cinema-active header, 
-        body.cinema-active main, 
-        body.cinema-active footer, 
-        body.cinema-active .beta-banner { 
-            opacity: 0 !important; 
-            pointer-events: none !important; 
-        }
-
-        #exit-cinema-btn { 
-            position: fixed; 
-            bottom: 30px; 
-            left: 50%; 
-            transform: translateX(-50%) translateY(50px); 
-            background: rgba(15, 23, 42, 0.85); 
-            backdrop-filter: blur(10px); 
-            color: var(--accent-blue); 
-            border: 2px solid var(--accent-blue); 
-            padding: 12px 30px; 
-            border-radius: 30px; 
-            font-size: 1.1em; 
-            font-weight: bold; 
-            cursor: pointer; 
-            z-index: 9999; 
-            opacity: 0; 
-            visibility: hidden; 
-            transition: 0.4s; 
-        }
-
-        body.cinema-active #exit-cinema-btn { 
-            opacity: 1; 
-            visibility: visible; 
-            transform: translateX(-50%) translateY(0); 
-        }
-
-        /* --- MAIN --- */
+        /* ==========================================================================
+           MAIN CONTENT
+           ========================================================================== */
         main { 
             flex: 1; 
-            padding: 40px 20px; 
+            padding: 50px 20px; 
             max-width: 1100px; 
             margin: 0 auto; 
             width: 100%; 
@@ -438,12 +338,18 @@
             } 
         }
 
+        .page-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
         .card { 
             background: var(--panel-glass); 
             border: 1px solid var(--border-light); 
             border-radius: 20px; 
-            padding: 30px; 
-            margin-bottom: 30px; 
+            padding: 40px; 
+            margin-bottom: 40px; 
             backdrop-filter: blur(10px); 
             transition: 0.3s; 
         }
@@ -458,6 +364,7 @@
             text-align: center; 
             background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(236,72,153,0.2)); 
             border: 2px solid var(--accent-blue); 
+            padding: 60px 20px;
         }
 
         .ip-box { 
@@ -465,84 +372,18 @@
             border: 2px dashed var(--accent-pink); 
             display: inline-flex; 
             align-items: center; 
-            padding: 15px 30px; 
+            padding: 20px 40px; 
             border-radius: 15px; 
-            margin-top: 20px; 
+            margin-top: 30px; 
             cursor: pointer; 
-            font-size: 1.3em; 
+            font-size: 1.5em; 
             font-weight: bold; 
             color: white; 
         }
 
-        /* --- GALERIE --- */
-        .gallery-feed { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
-        }
-
-        .gallery-post { 
-            background: rgba(0,0,0,0.3); 
-            border-radius: 15px; 
-            border: 1px solid var(--border-light); 
-            overflow: hidden; 
-            transition: 0.3s; 
-            cursor: pointer; 
-        }
-
-        .gallery-img { 
-            width: 100%; 
-            height: 250px; 
-            object-fit: cover; 
-            display: block; 
-            transition: 0.4s; 
-        }
-
-        .gallery-post:hover .gallery-img { 
-            transform: scale(1.05); 
-        }
-
-        /* --- CALENDRIER --- */
-        .calendar-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 20px; 
-            background: rgba(0,0,0,0.3); 
-            padding: 15px; 
-            border-radius: 15px; 
-        }
-
-        .cal-nav-btn { 
-            background: transparent; 
-            border: none; 
-            color: var(--accent-pink); 
-            font-size: 1.5em; 
-            cursor: pointer; 
-        }
-
-        .cal-grid { 
-            display: grid; 
-            grid-template-columns: repeat(7, 1fr); 
-            gap: 10px; 
-        }
-
-        .cal-case { 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid var(--border-light); 
-            border-radius: 10px; 
-            min-height: 80px; 
-            padding: 10px; 
-            cursor: pointer; 
-            transition: 0.2s; 
-        }
-
-        .today { 
-            border: 2px solid var(--accent-gold); 
-            background: rgba(245, 158, 11, 0.1); 
-        }
-
-        /* --- FOOTER --- */
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
         .main-footer { 
             background: rgba(10, 10, 15, 0.95); 
             padding: 60px 40px 20px 40px; 
@@ -564,7 +405,7 @@
             text-decoration: none; 
             cursor: pointer; 
             transition: 0.3s; 
-            font-size: 0.9em; 
+            font-size: 1em; 
         }
 
         .footer-col a:hover { 
@@ -618,12 +459,12 @@
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div style="margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px;">
+                <div style="margin-top: 20px; border-top: 1px solid var(--border-light); padding-top: 20px;">
                     <label class="custom-file-upload">
                         <input type="file" id="bg-upload" accept="image/*, video/*" style="display:none;">
                         📂 Changer le fond
                     </label>
-                    <button onclick="resetBg()" style="background:none; border:none; color:var(--accent-pink); font-size:0.8em; cursor:pointer; width:100%; margin-top:10px;">Réinitialiser</button>
+                    <button onclick="resetBg()" style="background:none; border:none; color:var(--accent-pink); font-size:1em; cursor:pointer; width:100%; margin-top:15px; font-weight:bold;">Réinitialiser</button>
                 </div>
             </div>
         </div>
@@ -632,26 +473,39 @@
     <main>
         <section id="accueil" class="page-section active">
             <div class="card hero">
-                <h1>✨ Bienvenue ✨</h1>
-                <p>La ville la plus ambitieuse de Just2Craft.</p>
-                <div class="ip-box" onclick="navigator.clipboard.writeText('just2craft.fr'); alert('IP Copiée !')">🎮 just2craft.fr</div>
+                <h1>✨ Bienvenue sur ExoWorld ✨</h1>
+                <p style="font-size: 1.2em;">La ville la plus ambitieuse de Just2Craft.</p>
+                <div class="ip-box" onclick="navigator.clipboard.writeText('just2craft.fr'); alert('IP Copiée !')">🎮 IP : just2craft.fr</div>
             </div>
         </section>
 
         <section id="annonces" class="page-section">
             <h1 class="page-title">📢 Annonces Officielles</h1>
             <div id="annonces-list">
-                <p style="text-align:center;">Chargement des dernières nouvelles depuis le serveur...</p>
+                <p style="text-align:center;">Chargement des dernières nouvelles...</p>
+            </div>
+        </section>
+
+        <section id="histoire" class="page-section">
+            <h1 class="page-title">📖 Notre Histoire</h1>
+            <div class="card">
+                <p>Fondé par Dorlane et Erwan, ExoWorld est un projet communautaire...</p>
             </div>
         </section>
 
         <section id="mises-a-jour" class="page-section">
-            <h1 class="page-title">🔄 Mises à jour</h1>
+            <h1 class="page-title">🔄 Journal des Mises à jour</h1>
             <div class="card" style="border-left: 5px solid var(--accent-gold);">
                 <h2 style="color: var(--accent-gold);">Version 10.35 (Actuelle)</h2>
                 <ul>
-                    <li><strong>Correction Annonces :</strong> Correction du bug qui affichait un message d'erreur quand il n'y avait aucune annonce.</li>
-                    <li><strong>Stabilité :</strong> Optimisation de la détection du GitHub Public.</li>
+                    <li><strong>Correction Annonces :</strong> Correction de l'affichage quand aucune annonce n'est présente.</li>
+                    <li><strong>Panel d'administration :</strong> Synchronisation complète avec le GitHub Public.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2 style="color: var(--text-dim);">Version 10.34</h2>
+                <ul style="color: var(--text-dim);">
+                    <li>Intégration du système de lecture automatique des fichiers Markdown.</li>
                 </ul>
             </div>
         </section>
@@ -659,16 +513,36 @@
         <section id="bugs" class="page-section">
             <h1 class="page-title">🔧 Suivi des Bugs</h1>
             <div class="card">
-                <li class="bug-ticket">
+                <div class="bug-ticket">
                     <strong>Mode Sombre</strong><br>
-                    <span>Instabilités visuelles possibles.</span>
+                    <span>Le paramètre peut être instable sur certains navigateurs.</span>
                     <div class="bug-status status-unresolved">❌ Non résolu</div>
-                </li>
+                </div>
+            </div>
+        </section>
+
+        <section id="recrutement" class="page-section">
+            <h1 class="page-title">🚀 Recrutement</h1>
+            <div class="card" style="text-align:center">
+                <h2>Rejoignez notre équipe !</h2>
+                <p>Nous recherchons des buildeurs et des décorateurs motivés.</p>
+            </div>
+        </section>
+
+        <section id="calendrier" class="page-section">
+            <h1 class="page-title">📅 Événements</h1>
+            <div class="card">
+                <div class="calendar-header">
+                    <button class="cal-nav-btn" onclick="changeMonth(-1)">◀</button>
+                    <h2 id="cal-title" style="margin:0;">Avril 2026</h2>
+                    <button class="cal-nav-btn" onclick="changeMonth(1)">▶</button>
+                </div>
+                <div id="cal-days" class="cal-grid"></div>
             </div>
         </section>
 
         <section id="galerie" class="page-section">
-            <h1 class="page-title">📸 Galerie</h1>
+            <h1 class="page-title">📸 Galerie Photos</h1>
             <div class="gallery-feed">
                 <div class="gallery-post"><img src="galerie/photo1.jpg" class="gallery-img" onerror="this.style.display='none'"></div>
                 <div class="gallery-post"><img src="galerie/photo2.jpg" class="gallery-img" onerror="this.style.display='none'"></div>
@@ -676,37 +550,10 @@
             </div>
         </section>
 
-        <section id="calendrier" class="page-section">
-            <h1 class="page-title">📅 Calendrier</h1>
-            <div class="card">
-                <div class="calendar-header">
-                    <button class="cal-nav-btn" onclick="changeMonth(-1)">◀</button>
-                    <h2 id="cal-title">Avril 2026</h2>
-                    <button class="cal-nav-btn" onclick="changeMonth(1)">▶</button>
-                </div>
-                <div id="cal-days" class="cal-grid"></div>
-            </div>
-        </section>
-
-        <section id="histoire" class="page-section">
-            <h1 class="page-title">📖 Histoire</h1>
-            <div class="card">
-                <p>Fondé par Dorlane et Erwan.</p>
-            </div>
-        </section>
-
-        <section id="recrutement" class="page-section">
-            <h1 class="page-title">🚀 Recrutement</h1>
-            <div class="card" style="text-align:center">
-                <h2>On cherche des talents !</h2>
-                <p>Buildeurs et Décorateurs.</p>
-            </div>
-        </section>
-
         <section id="carte" class="page-section">
-            <h1 class="page-title">🗺️ Carte</h1>
-            <div class="card">
-                <iframe src="https://survival.just2craft.fr/?worldname=world&mapname=surface&zoom=5&x=-14390&y=64&z=-19286" width="100%" height="500px" style="border:none; border-radius:15px;"></iframe>
+            <h1 class="page-title">🗺️ Carte de la Ville</h1>
+            <div class="card" style="padding:10px;">
+                <iframe src="https://survival.just2craft.fr/?worldname=world&mapname=surface&zoom=5&x=-14390&y=64&z=-19286" width="100%" height="550px" style="border:none; border-radius:15px;"></iframe>
             </div>
         </section>
     </main>
@@ -717,10 +564,10 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>EXOWORLD</h3>
-                <p>La ville la plus joyeuse.</p>
+                <p>La ville la plus joyeuse de Just2Craft.</p>
             </div>
             <div class="footer-col">
-                <h3>Liens</h3>
+                <h3>Liens Utiles</h3>
                 <ul>
                     <li><a onclick="showPage('accueil')">Accueil</a></li>
                     <li><a onclick="showPage('mises-a-jour')">Mises à jour</a></li>
@@ -730,14 +577,18 @@
     </footer>
 
     <script>
-        function showPage(p) {
+        // NAVIGATION
+        function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-            document.getElementById(p).classList.add('active');
-            if(document.getElementById('nav-'+p)) document.getElementById('nav-'+p).classList.add('active');
+            document.getElementById(pageId).classList.add('active');
+            if(document.getElementById('nav-'+pageId)) {
+                document.getElementById('nav-'+pageId).classList.add('active');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // MENUS ET INTERFACE
         function toggleMenu(m) {
             const el = document.getElementById(m);
             const active = el.classList.contains('active');
@@ -745,36 +596,140 @@
             if(!active) el.classList.add('active');
         }
 
-        function toggleCinemaMode() { document.body.classList.add('cinema-active'); }
-        function disableCinemaMode() { document.body.classList.remove('cinema-active'); }
+        function toggleCinemaMode() { 
+            document.body.classList.add('cinema-active'); 
+        }
+
+        function disableCinemaMode() { 
+            document.body.classList.remove('cinema-active'); 
+        }
 
         function toggleDarkMode(cb) { 
             document.body.classList.toggle('light-mode', !cb.checked); 
             localStorage.setItem('exo_theme', cb.checked ? 'dark' : 'light'); 
         }
 
+        // FOND D'ÉCRAN
+        document.getElementById('bg-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const videoEl = document.getElementById('bg-video');
+            if (file) {
+                if (file.type.startsWith('video/')) {
+                    document.body.style.backgroundImage = 'none';
+                    videoEl.src = URL.createObjectURL(file);
+                    videoEl.style.display = 'block';
+                } else {
+                    videoEl.style.display = 'none';
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.body.style.backgroundImage = `url(${event.target.result})`;
+                        document.body.style.backgroundSize = 'cover';
+                        localStorage.setItem('exo_customBg', event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        function resetBg() {
+            document.body.style.backgroundImage = '';
+            localStorage.removeItem('exo_customBg');
+            const videoEl = document.getElementById('bg-video');
+            videoEl.style.display = 'none';
+            videoEl.src = '';
+        }
+
+        // CALENDRIER
         const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
         let currentMonth = 3, currentYear = 2026;
 
         function renderCalendar() {
             const grid = document.getElementById("cal-days");
             grid.innerHTML = "";
-            const jours = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-            jours.forEach(d => grid.innerHTML += `<div style="text-align:center; font-weight:bold; color:var(--accent-pink);">${d}</div>`);
-            let firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            firstDay = firstDay === 0 ? 6 : firstDay - 1;
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            for(let i = 0; i < firstDay; i++) grid.innerHTML += `<div></div>`;
-            for(let i = 1; i <= daysInMonth; i++) {
-                grid.innerHTML += `<div class="cal-case ${i===26?'today':''}"><strong>${i}</strong></div>`;
+            const joursSemaine = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+            
+            joursSemaine.forEach(j => {
+                grid.innerHTML += `<div style="text-align:center; font-weight:bold; color:var(--accent-pink);">${j}</div>`;
+            });
+            
+            let premierJour = new Date(currentYear, currentMonth, 1).getDay();
+            premierJour = (premierJour === 0) ? 6 : premierJour - 1;
+            const nbJours = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            for(let i = 0; i < premierJour; i++) {
+                grid.innerHTML += `<div></div>`;
+            }
+            
+            for(let i = 1; i <= nbJours; i++) {
+                let estAujourdhui = (i === 26 && currentMonth === 3) ? 'today' : '';
+                grid.innerHTML += `<div class="cal-case ${estAujourdhui}"><strong>${i}</strong></div>`;
+            }
+        }
+
+        function changeMonth(dir) {
+            currentMonth += dir;
+            if(currentMonth > 11) { currentMonth = 0; currentYear++; }
+            if(currentMonth < 0) { currentMonth = 11; currentYear--; }
+            document.getElementById('cal-title').innerText = monthNames[currentMonth] + " " + currentYear;
+            renderCalendar();
+        }
+
+        // ASPIRE-ANNONCES (DYNAMIQUE)
+        async function loadAnnonces() {
+            const container = document.getElementById('annonces-list');
+            const repo = "Erwan-666/exoworld"; 
+            const path = "content/annonces";
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
+                
+                if (response.status === 404) {
+                    container.innerHTML = "<p style='text-align:center;'>Aucune annonce pour le moment.</p>";
+                    return;
+                }
+
+                if (!response.ok) throw new Error();
+                const files = await response.json();
+
+                if (files.length === 0) {
+                    container.innerHTML = "<p style='text-align:center;'>Aucune annonce pour le moment.</p>";
+                    return;
+                }
+
+                container.innerHTML = "";
+                for (const file of files) {
+                    if (file.name.endsWith('.md')) {
+                        const res = await fetch(file.download_url);
+                        const content = await res.text();
+                        const titleMatch = content.match(/title:\s*(.*)/);
+                        const bodyContent = content.split('---').pop().trim();
+                        const title = titleMatch ? titleMatch[1].replace(/"/g, '') : "Annonce";
+
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.style.borderLeft = "5px solid var(--accent-gold)";
+                        card.innerHTML = `<h2 style="color:var(--accent-gold); margin-top:0;">${title}</h2><p>${bodyContent}</p>`;
+                        container.prepend(card);
+                    }
+                }
+            } catch (e) {
+                container.innerHTML = "<p style='text-align:center; color:var(--accent-pink);'>Vérifiez que votre GitHub est en Public.</p>";
             }
         }
 
         window.onload = function() {
             renderCalendar();
-            loadAnnonces(); // CHARGEMENT DES ANNONCES
+            loadAnnonces();
             const savedTheme = localStorage.getItem('exo_theme');
-            if (savedTheme === 'light') { document.body.classList.add('light-mode'); document.getElementById('toggleThemeBtn').checked = false; }
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('toggleThemeBtn').checked = false;
+            }
+            const savedBg = localStorage.getItem('exo_customBg');
+            if (savedBg) {
+                document.body.style.backgroundImage = `url(${savedBg})`;
+                document.body.style.backgroundSize = 'cover';
+            }
         };
     </script>
 
@@ -788,53 +743,6 @@
           }
         });
       }
-    </script>
-
-    <script>
-    async function loadAnnonces() {
-        const container = document.getElementById('annonces-list');
-        const repo = "Erwan-666/exoworld"; 
-        const path = "content/annonces";
-
-        try {
-            const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
-            
-            // CAS SPÉCIAL : Si GitHub renvoie 404, c'est que le dossier n'existe pas encore
-            // (donc aucune annonce n'a encore été publiée).
-            if (response.status === 404) {
-                container.innerHTML = "<p style='text-align:center;'>Aucune annonce pour le moment.</p>";
-                return;
-            }
-
-            if (!response.ok) throw new Error();
-            const files = await response.json();
-
-            if (files.length === 0) {
-                container.innerHTML = "<p style='text-align:center;'>Aucune annonce pour le moment.</p>";
-                return;
-            }
-
-            container.innerHTML = "";
-            for (const file of files) {
-                if (file.name.endsWith('.md')) {
-                    const res = await fetch(file.download_url);
-                    const content = await res.text();
-                    const titleMatch = content.match(/title:\s*(.*)/);
-                    const bodyContent = content.split('---').pop().trim();
-                    const title = titleMatch ? titleMatch[1].replace(/"/g, '') : "Annonce";
-
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.style.borderLeft = "5px solid var(--accent-gold)";
-                    card.innerHTML = `<h2 style="color:var(--accent-gold); margin-top:0;">${title}</h2><p>${bodyContent}</p>`;
-                    container.prepend(card);
-                }
-            }
-        } catch (e) {
-            // Vraie erreur (Dépôt privé ou problème réseau)
-            container.innerHTML = "<p style='text-align:center; color:var(--accent-pink);'>Vérifiez que votre dépôt GitHub est bien en Public dans les réglages.</p>";
-        }
-    }
     </script>
 
 </body>
