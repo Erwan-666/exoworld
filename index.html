@@ -648,16 +648,10 @@
         <section id="mises-a-jour" class="page-section">
             <h1 class="page-title">🔄 Mises à jour</h1>
             <div class="card" style="border-left: 5px solid var(--accent-gold);">
-                <h2 style="color: var(--accent-gold);">Version 10.34 (Actuelle)</h2>
+                <h2 style="color: var(--accent-gold);">Version 10.35 (Actuelle)</h2>
                 <ul>
-                    <li><strong>Annonces Dynamiques :</strong> Le site lit désormais automatiquement les annonces créées via le panel admin sur GitHub.</li>
-                    <li><strong>Stabilité :</strong> Correction des scripts de redirection Identity.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h2 style="color: var(--text-dim);">Version 10.33</h2>
-                <ul style="color: var(--text-dim);">
-                    <li>Mise en place du Panel Admin et du déploiement continu.</li>
+                    <li><strong>Correction Annonces :</strong> Correction du bug qui affichait un message d'erreur quand il n'y avait aucune annonce.</li>
+                    <li><strong>Stabilité :</strong> Optimisation de la détection du GitHub Public.</li>
                 </ul>
             </div>
         </section>
@@ -804,6 +798,14 @@
 
         try {
             const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
+            
+            // CAS SPÉCIAL : Si GitHub renvoie 404, c'est que le dossier n'existe pas encore
+            // (donc aucune annonce n'a encore été publiée).
+            if (response.status === 404) {
+                container.innerHTML = "<p style='text-align:center;'>Aucune annonce pour le moment.</p>";
+                return;
+            }
+
             if (!response.ok) throw new Error();
             const files = await response.json();
 
@@ -829,7 +831,8 @@
                 }
             }
         } catch (e) {
-            container.innerHTML = "<p style='text-align:center; color:var(--accent-pink);'>Connectez-vous pour voir les annonces ou passez le GitHub en Public.</p>";
+            // Vraie erreur (Dépôt privé ou problème réseau)
+            container.innerHTML = "<p style='text-align:center; color:var(--accent-pink);'>Vérifiez que votre dépôt GitHub est bien en Public dans les réglages.</p>";
         }
     }
     </script>
